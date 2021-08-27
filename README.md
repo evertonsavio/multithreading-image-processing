@@ -2,7 +2,7 @@
 
 ---
 #### Representação de memória ARGB
-O formato usado em nosso exemplo de processamento de imagem é uma versão da família RGB chamada ARGB, onde A significa alfa (transparência)
+O formato usado no processamento de imagem é uma versão da família RGB chamada ARGB, onde A significa alfa (transparência)
 
 A representação desta cor na memória é a seguinte:  
 int = 0b11111111, 0b11111111, 0b11111111, 0b11111111 = ARGB
@@ -13,7 +13,7 @@ Como temos 4 bytes, podemos armazenar toda a cor de um pixel em uma variável do
 
 ---
 #### Explicação do código de extração de componente
-No exemplo de processamento de imagem, temos os seguintes métodos que extraem componentes individuais de um pixel:
+No processamento de imagem, temos os seguintes métodos que extraem componentes individuais de um pixel:
 
 ```
 public static int getRed (int rgb) {
