@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecolorSingleThreadedApp {
+public class RecolorMultiThreadedApp {
 
     public static final String SOURCE_FILE = "./src/main/resources/many-flowers.jpg";
     public static final String DESTINATION_FILE = "./out/many-flowers.jpg";
@@ -18,10 +18,17 @@ public class RecolorSingleThreadedApp {
         BufferedImage resultImage = new BufferedImage(originalImage.getWidth(), originalImage.getHeight()
                                                                               , BufferedImage.TYPE_INT_RGB);
 
-        recolorSingleThreaded(originalImage, resultImage);
+        long startTime = System.currentTimeMillis();
+        //recolorSingleThreaded(originalImage, resultImage);
+        recolorMultiThreaded(originalImage, resultImage, 1);
+        long endTime = System.currentTimeMillis();
+
+        long duration = endTime - startTime;
 
         File outputFile = new File(DESTINATION_FILE);
         ImageIO.write(resultImage, "jpg", outputFile);
+
+        System.out.println("Duration: " + duration);
     }
 
     public static void recolorMultiThreaded(BufferedImage originalImage, BufferedImage resultImage, int numberOfThreads){
